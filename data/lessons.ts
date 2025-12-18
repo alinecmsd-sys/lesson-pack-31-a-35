@@ -45,14 +45,14 @@ export const LESSONS: Lesson[] = [
       }
     ],
     exercises: [
-      { id: 'e31-1', question: "Complete: 'He works here, ...?'", options: ["doesn't he", "don't he"], correctAnswer: "doesn't he", audioPrompt: "He works here, doesn't he?" },
-      { id: 'e31-2', question: "Listening: O que foi dito?", options: ["You don't believe that", "You believe that"], correctAnswer: "You don't believe that", audioPrompt: "You don't believe that, do you?" },
-      { id: 'e31-3', question: "Complete: 'They went on strike, ...?'", options: ["didn't they", "did they"], correctAnswer: "didn't they", audioPrompt: "They went on strike, didn't they?" },
-      { id: 'e31-4', question: "Listening: Qual a tag?", options: ["Doesn't she", "Isn't she"], correctAnswer: "Doesn't she", audioPrompt: "She teaches English, doesn't she?" },
-      { id: 'e31-5', question: "Complete: 'We met by chance, ...?'", options: ["didn't we", "did we"], correctAnswer: "didn't we", audioPrompt: "We met by chance, didn't we?" },
-      { id: 'e31-6', question: "Listening: O que eles têm?", options: ["An appointment", "A decision"], correctAnswer: "An appointment", audioPrompt: "They have an appointment, don't they?" },
-      { id: 'e31-7', question: "Complete: 'You apply for jobs, ...?'", options: ["don't you", "aren't you"], correctAnswer: "don't you", audioPrompt: "You apply for jobs every day, don't you?" },
-      { id: 'e31-8', question: "Listening: Marque a correta.", options: ["They won't bother you", "They will bother you"], correctAnswer: "They won't bother you", audioPrompt: "They won't bother you anymore, will they?" }
+      { id: 'e31-1', portuguesePrompt: "Traduza: Ele trabalha aqui, não trabalha?", correctEnglish: "He works here, doesn't he?", audioHint: "He works here, doesn't he?" },
+      { id: 'e31-2', portuguesePrompt: "Traduza: Você não acredita nisso, acredita?", correctEnglish: "You don't believe that, do you?", audioHint: "You don't believe that, do you?" },
+      { id: 'e31-3', portuguesePrompt: "Traduza: Eles entraram em greve, não foi?", correctEnglish: "They went on strike, didn't they?", audioHint: "They went on strike, didn't they?" },
+      { id: 'e31-4', portuguesePrompt: "Traduza: Ela ensina inglês, não ensina?", correctEnglish: "She teaches English, doesn't she?", audioHint: "She teaches English, doesn't she?" },
+      { id: 'e31-5', portuguesePrompt: "Traduza: Nós nos encontramos por acaso, não foi?", correctEnglish: "We met by chance, didn't we?", audioHint: "We met by chance, didn't we?" },
+      { id: 'e31-6', portuguesePrompt: "Traduza: Eles têm um compromisso, não têm?", correctEnglish: "They have an appointment, don't they?", audioHint: "They have an appointment, don't they?" },
+      { id: 'e31-7', portuguesePrompt: "Traduza: Eu vou me candidatar a um emprego.", correctEnglish: "I'm going to apply for a job", audioHint: "I'm going to apply for a job." },
+      { id: 'e31-8', portuguesePrompt: "Traduza: Eles não vão mais te incomodar.", correctEnglish: "They won't bother you anymore", audioHint: "They won't bother you anymore." }
     ]
   },
   {
@@ -97,14 +97,14 @@ export const LESSONS: Lesson[] = [
       }
     ],
     exercises: [
-      { id: 'e32-1', question: "Complete: 'She is happy, ...?'", options: ["isn't she", "is she"], correctAnswer: "isn't she", audioPrompt: "She is happy, isn't she?" },
-      { id: 'e32-2', question: "Listening: O que você ouviu?", options: ["They were glad", "They weren't glad"], correctAnswer: "They were glad", audioPrompt: "They were glad to be here, aren't they?" },
-      { id: 'e32-3', question: "Complete: 'You aren't tired, ...?'", options: ["are you", "aren't you"], correctAnswer: "are you", audioPrompt: "You aren't tired, are you?" },
-      { id: 'e32-4', question: "Listening: Qual a tag usada?", options: ["Wasn't she", "Was she"], correctAnswer: "Was she", audioPrompt: "She wasn't upset, was she?" },
-      { id: 'e32-5', question: "Complete: 'It was funny, ...?'", options: ["wasn't it", "was it"], correctAnswer: "wasn't it", audioPrompt: "It was funny, wasn't it?" },
-      { id: 'e32-6', question: "Listening: Quem estava apaixonado?", options: ["They were", "We were"], correctAnswer: "They were", audioPrompt: "They were in love, weren't they?" },
-      { id: 'e32-7', question: "Complete: 'He is smart, ...?'", options: ["isn't he", "is he"], correctAnswer: "isn't he", audioPrompt: "He is smart, isn't he?" },
-      { id: 'e32-8', question: "Listening: Marque a tag correta.", options: ["Isn't it", "Wasn't it"], correctAnswer: "Isn't it", audioPrompt: "It's interesting, isn't it?" }
+      { id: 'e32-1', portuguesePrompt: "Traduza: Ela está feliz, não está?", correctEnglish: "She is happy, isn't she?", audioHint: "She is happy, isn't she?" },
+      { id: 'e32-2', portuguesePrompt: "Traduza: Eles estavam contentes de estar aqui, não estavam?", correctEnglish: "They were glad to be here, aren't they?", audioHint: "They were glad to be here, aren't they?" },
+      { id: 'e32-3', portuguesePrompt: "Traduza: Você não está cansado, está?", correctEnglish: "You aren't tired, are you?", audioHint: "You aren't tired, are you?" },
+      { id: 'e32-4', portuguesePrompt: "Traduza: Ela não estava chateada, estava?", correctEnglish: "She wasn't upset, was she?", audioHint: "She wasn't upset, was she?" },
+      { id: 'e32-5', portuguesePrompt: "Traduza: Foi engraçado, não foi?", correctEnglish: "It was funny, wasn't it?", audioHint: "It was funny, wasn't it?" },
+      { id: 'e32-6', portuguesePrompt: "Traduza: Eles estavam apaixonados, não estavam?", correctEnglish: "They were in love, weren't they?", audioHint: "They were in love, weren't they?" },
+      { id: 'e32-7', portuguesePrompt: "Traduza: Ele é esperto, não é?", correctEnglish: "He is smart, isn't he?", audioHint: "He is smart, isn't he?" },
+      { id: 'e32-8', portuguesePrompt: "Traduza: É interessante, não é?", correctEnglish: "It's interesting, isn't it?", audioHint: "It's interesting, isn't it?" }
     ]
   },
   {
@@ -151,14 +151,14 @@ export const LESSONS: Lesson[] = [
       }
     ],
     exercises: [
-      { id: 'e33-1', question: "Complete: 'She ... she was tired.'", options: ["said", "told"], correctAnswer: "said", audioPrompt: "She said she was tired." },
-      { id: 'e33-2', question: "Listening: O que fazer com ajuda?", options: ["Call whenever", "Call wherever"], correctAnswer: "Call whenever", audioPrompt: "Call me whenever you need help." },
-      { id: 'e33-3', question: "Complete: 'He ... me the truth.'", options: ["told", "said"], correctAnswer: "told", audioPrompt: "He told me the truth." },
-      { id: 'e33-4', question: "Listening: Onde sentar?", options: ["Wherever you like", "Whatever you like"], correctAnswer: "Wherever you like", audioPrompt: "You can sit wherever you like." },
-      { id: 'e33-5', question: "Complete: '... happens, stay calm.'", options: ["Whatever", "Whoever"], correctAnswer: "Whatever", audioPrompt: "Whatever happens, stay calm." },
-      { id: 'e33-6', question: "Listening: O que eles disseram?", options: ["Excited", "Upset"], correctAnswer: "Excited", audioPrompt: "They said they were excited." },
-      { id: 'e33-7', question: "Complete: 'I ... you to be here.'", options: ["told", "said"], correctAnswer: "told", audioPrompt: "I told you to be here." },
-      { id: 'e33-8', question: "Listening: Marque o pronome correto.", options: ["Whoever", "Wherever"], correctAnswer: "Whoever", audioPrompt: "Whoever wins, we celebrate." }
+      { id: 'e33-1', portuguesePrompt: "Traduza: Ela disse que estava cansada.", correctEnglish: "She said she was tired", audioHint: "She said she was tired." },
+      { id: 'e33-2', portuguesePrompt: "Traduza: Ligue-me sempre que precisar de ajuda.", correctEnglish: "Call me whenever you need help", audioHint: "Call me whenever you need help." },
+      { id: 'e33-3', portuguesePrompt: "Traduza: Ele me disse a verdade.", correctEnglish: "He told me the truth", audioHint: "He told me the truth." },
+      { id: 'e33-4', portuguesePrompt: "Traduza: Você pode sentar onde quiser.", correctEnglish: "You can sit wherever you like", audioHint: "You can sit wherever you like." },
+      { id: 'e33-5', portuguesePrompt: "Traduza: O que quer que aconteça, fique calmo.", correctEnglish: "Whatever happens, stay calm", audioHint: "Whatever happens, stay calm." },
+      { id: 'e33-6', portuguesePrompt: "Traduza: Eles disseram que estavam empolgados.", correctEnglish: "They said they were excited", audioHint: "They said they were excited." },
+      { id: 'e33-7', portuguesePrompt: "Traduza: Eu te falei para estar aqui.", correctEnglish: "I told you to be here", audioHint: "I told you to be here." },
+      { id: 'e33-8', portuguesePrompt: "Traduza: Quem quer que ganhe, nós celebramos.", correctEnglish: "Whoever wins, we celebrate", audioHint: "Whoever wins, we celebrate." }
     ]
   },
   {
@@ -201,14 +201,14 @@ export const LESSONS: Lesson[] = [
       }
     ],
     exercises: [
-      { id: 'e34-1', question: "Complete: 'She is ... than me.'", options: ["taller", "tallest"], correctAnswer: "taller", audioPrompt: "She is taller than me." },
-      { id: 'e34-2', question: "Listening: O que é mais rápido?", options: ["The car", "The bike"], correctAnswer: "The car", audioPrompt: "This car is faster than that one." },
-      { id: 'e34-3', question: "Complete: 'Gold is ... than silver.'", options: ["more expensive", "expensiver"], correctAnswer: "more expensive", audioPrompt: "Gold is more expensive than silver." },
-      { id: 'e34-4', question: "Listening: Como está o inglês?", options: ["Better", "Worse"], correctAnswer: "Better", audioPrompt: "Your English is better than mine!" },
-      { id: 'e34-5', question: "Complete: 'He is as ... as me.'", options: ["smart", "smarter"], correctAnswer: "smart", audioPrompt: "He is as smart as me." },
-      { id: 'e34-6', question: "Listening: A casa é o quê?", options: ["Smaller", "Bigger"], correctAnswer: "Smaller", audioPrompt: "My house is smaller than yours." },
-      { id: 'e34-7', question: "Complete: 'This is ... than that.'", options: ["better", "gooder"], correctAnswer: "better", audioPrompt: "This is better than that." },
-      { id: 'e34-8', question: "Listening: Marque a correta.", options: ["Cheaper", "Worse"], correctAnswer: "Cheaper", audioPrompt: "It's cheaper than the Pro version!" }
+      { id: 'e34-1', portuguesePrompt: "Traduza: Ela é mais alta que eu.", correctEnglish: "She is taller than me", audioHint: "She is taller than me." },
+      { id: 'e34-2', portuguesePrompt: "Traduza: Este carro é mais rápido que aquele.", correctEnglish: "This car is faster than that one", audioHint: "This car is faster than that one." },
+      { id: 'e34-3', portuguesePrompt: "Traduza: Ouro é mais caro que prata.", correctEnglish: "Gold is more expensive than silver", audioHint: "Gold is more expensive than silver." },
+      { id: 'e34-4', portuguesePrompt: "Traduza: Seu inglês é melhor que o meu!", correctEnglish: "Your English is better than mine", audioHint: "Your English is better than mine!" },
+      { id: 'e34-5', portuguesePrompt: "Traduza: Ele é tão esperto quanto eu.", correctEnglish: "He is as smart as me", audioHint: "He is as smart as me." },
+      { id: 'e34-6', portuguesePrompt: "Traduza: Minha casa é menor que a sua.", correctEnglish: "My house is smaller than yours", audioHint: "My house is smaller than yours." },
+      { id: 'e34-7', portuguesePrompt: "Traduza: Isto é melhor que aquilo.", correctEnglish: "This is better than that", audioHint: "This is better than that." },
+      { id: 'e34-8', portuguesePrompt: "Traduza: É mais barato que a versão Pro!", correctEnglish: "It's cheaper than the Pro version", audioHint: "It's cheaper than the Pro version!" }
     ]
   },
   {
@@ -250,14 +250,14 @@ export const LESSONS: Lesson[] = [
       }
     ],
     exercises: [
-      { id: 'e35-1', question: "Complete: 'She is the ... girl.'", options: ["most intelligent", "more intelligent"], correctAnswer: "most intelligent", audioPrompt: "She is the most intelligent girl I know." },
-      { id: 'e35-2', question: "Listening: Qual estado foi citado?", options: ["Alaska", "Texas"], correctAnswer: "Alaska", audioPrompt: "Alaska is the coldest state in the USA." },
-      { id: 'e35-3', question: "Complete: 'This is the ... movie.'", options: ["best", "better"], correctAnswer: "best", audioPrompt: "This is the best movie ever!" },
-      { id: 'e35-4', question: "Listening: O que o guepardo é?", options: ["The fastest", "The biggest"], correctAnswer: "The fastest", audioPrompt: "The cheetah is the fastest animal." },
-      { id: 'e35-5', question: "Complete: 'He is the ... student.'", options: ["tallest", "taller"], correctAnswer: "tallest", audioPrompt: "He is the tallest student in the class." },
-      { id: 'e35-6', question: "Listening: Como foi o dia?", options: ["The worst", "The best"], correctAnswer: "The worst", audioPrompt: "That was the worst day of my life." },
-      { id: 'e35-7', question: "Complete: 'This is the ... joke.'", options: ["funniest", "funnyest"], correctAnswer: "funniest", audioPrompt: "This is the funniest joke ever!" },
-      { id: 'e35-8', question: "Listening: Marque o superlativo.", options: ["Smallest", "Smartest"], correctAnswer: "Smartest", audioPrompt: "She is the smartest student in our class." }
+      { id: 'e35-1', portuguesePrompt: "Traduza: Ela é a garota mais inteligente que conheço.", correctEnglish: "She is the most intelligent girl I know", audioHint: "She is the most intelligent girl I know." },
+      { id: 'e35-2', portuguesePrompt: "Traduza: Alasca é o estado mais frio dos EUA.", correctEnglish: "Alaska is the coldest state in the USA", audioHint: "Alaska is the coldest state in the USA." },
+      { id: 'e35-3', portuguesePrompt: "Traduza: Este é o melhor filme de todos!", correctEnglish: "This is the best movie ever", audioHint: "This is the best movie ever!" },
+      { id: 'e35-4', portuguesePrompt: "Traduza: O guepardo é o animal mais rápido.", correctEnglish: "The cheetah is the fastest animal", audioHint: "The cheetah is the fastest animal." },
+      { id: 'e35-5', portuguesePrompt: "Traduza: Ele é o aluno mais alto da classe.", correctEnglish: "He is the tallest student in the class", audioHint: "He is the tallest student in the class." },
+      { id: 'e35-6', portuguesePrompt: "Traduza: Aquele foi o pior dia da minha vida.", correctEnglish: "That was the worst day of my life", audioHint: "That was the worst day of my life." },
+      { id: 'e35-7', portuguesePrompt: "Traduza: Esta é a piada mais engraçada de todas!", correctEnglish: "This is the funniest joke ever", audioHint: "This is the funniest joke ever!" },
+      { id: 'e35-8', portuguesePrompt: "Traduza: Ela é a estudante mais esperta da nossa classe.", correctEnglish: "She is the smartest student in our class", audioHint: "She is the smartest student in our class." }
     ]
   }
 ];

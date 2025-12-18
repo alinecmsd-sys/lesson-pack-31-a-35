@@ -23,10 +23,9 @@ export interface DialogueItem {
 
 export interface ExerciseItem {
   id: string;
-  question: string;
-  options: string[];
-  correctAnswer: string;
-  audioPrompt?: string; // Sentence to be read for listening exercises
+  portuguesePrompt: string;
+  correctEnglish: string;
+  audioHint?: string;
 }
 
 export interface Lesson {
