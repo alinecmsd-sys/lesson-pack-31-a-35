@@ -8,13 +8,9 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script>
-      // Non-destructive polyfill for process.env
-      window.process = window.process || {};
-      window.process.env = window.process.env || {};
-      // If API_KEY is not defined (local dev), we ensure it doesn't crash, 
-      // but we DON'T overwrite it if it's already there (production/Vercel)
-      if (window.process.env.API_KEY === undefined) {
-        window.process.env.API_KEY = "";
+      // Minimal polyfill to prevent ReferenceErrors
+      if (typeof window.process === 'undefined') {
+        window.process = { env: {} };
       }
     </script>
     <style>

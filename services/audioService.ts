@@ -13,7 +13,7 @@ function decode(base64: string) {
     }
     return bytes;
   } catch (e) {
-    console.error("English Master: Base64 decode error", e);
+    console.error("English Master: Error decoding base64 audio", e);
     return new Uint8Array(0);
   }
 }
@@ -41,40 +41,41 @@ export class AudioService {
   private audioContext: AudioContext | null = null;
   private cache: Map<string, AudioBuffer> = new Map();
 
-  private initAudioContext() {
+  private async getAudioContext(): Promise<AudioContext> {
     if (!this.audioContext || this.audioContext.state === 'closed') {
       const AudioCtx = (window as any).AudioContext || (window as any).webkitAudioContext;
       this.audioContext = new AudioCtx({ sampleRate: SAMPLE_RATE });
     }
-    return this.audioContext;
+    
+    if (this.audioContext!.state === 'suspended') {
+      await this.audioContext!.resume();
+    }
+    
+    return this.audioContext!;
   }
 
   async playText(text: string, voice: 'Kore' | 'Puck' | 'Zephyr' = 'Kore'): Promise<void> {
-    const cacheKey = `${voice}:${text}`;
-    const ctx = this.initAudioContext();
-
     try {
-      // Modern browsers require resuming AudioContext within a user-triggered event
-      if (ctx.state === 'suspended') {
-        await ctx.resume();
-      }
+      const ctx = await this.getAudioContext();
+      const cacheKey = `${voice}:${text}`;
 
       let audioBuffer: AudioBuffer;
 
       if (this.cache.has(cacheKey)) {
         audioBuffer = this.cache.get(cacheKey)!;
       } else {
-        // Accessing the API Key safely
-        const apiKey = process.env.API_KEY;
+        // Obtenção da chave em tempo de execução para garantir que não esteja vazia
+        const apiKey = process.env.API_KEY || (window as any).process?.env?.API_KEY;
         
         if (!apiKey) {
-          console.error("English Master: process.env.API_KEY is missing or empty. Verify your environment variables.");
+          console.warn("English Master: API_KEY not detected. Check environment variables on Vercel.");
           return;
         }
 
         const ai = new GoogleGenAI({ apiKey });
-        // We instruct the model to speak at 0.9 speed as requested
-        const prompt = `Say in English at 0.9x speed: ${text}`;
+        
+        // Instrução clara de velocidade para o modelo
+        const prompt = `Please speak the following text in English at a slightly slower, natural pace (approximately 0.9x speed): "${text}"`;
         
         const response = await ai.models.generateContent({
           model: "gemini-2.5-flash-preview-tts",
@@ -91,8 +92,7 @@ export class AudioService {
 
         const base64Audio = response.candidates?.[0]?.content?.parts?.[0]?.inlineData?.data;
         if (!base64Audio) {
-          console.error("English Master: No audio data returned from Gemini API");
-          return;
+          throw new Error("No audio content in Gemini response");
         }
 
         audioBuffer = await decodeAudioData(
@@ -107,7 +107,9 @@ export class AudioService {
       const source = ctx.createBufferSource();
       source.buffer = audioBuffer;
       source.connect(ctx.destination);
-      source.start();
+      source.start(0);
+      
+      console.log(`Playing: "${text.substring(0, 30)}..."`);
     } catch (error) {
       console.error("English Master: Audio Service failure", error);
     }
