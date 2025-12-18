@@ -1,0 +1,7 @@
+{
+  "name": "English Master - Interactive Learning",
+  "description": "A comprehensive English learning app with lessons on tag questions, comparisons, and more. Featuring interactive exercises and AI-powered audio feedback.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
