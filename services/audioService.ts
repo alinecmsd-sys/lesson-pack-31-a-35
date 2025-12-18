@@ -4,13 +4,18 @@ import { GoogleGenAI, Modality } from "@google/genai";
 const SAMPLE_RATE = 24000;
 
 function decode(base64: string) {
-  const binaryString = atob(base64);
-  const len = binaryString.length;
-  const bytes = new Uint8Array(len);
-  for (let i = 0; i < len; i++) {
-    bytes[i] = binaryString.charCodeAt(i);
+  try {
+    const binaryString = atob(base64);
+    const len = binaryString.length;
+    const bytes = new Uint8Array(len);
+    for (let i = 0; i < len; i++) {
+      bytes[i] = binaryString.charCodeAt(i);
+    }
+    return bytes;
+  } catch (e) {
+    console.error("Base64 decode error", e);
+    return new Uint8Array(0);
   }
-  return bytes;
 }
 
 async function decodeAudioData(
@@ -38,9 +43,8 @@ export class AudioService {
 
   private initAudioContext() {
     if (!this.audioContext || this.audioContext.state === 'suspended') {
-      this.audioContext = new (window.AudioContext || (window as any).webkitAudioContext)({
-        sampleRate: SAMPLE_RATE,
-      });
+      const AudioCtx = (window as any).AudioContext || (window as any).webkitAudioContext;
+      this.audioContext = new AudioCtx({ sampleRate: SAMPLE_RATE });
     }
     return this.audioContext;
   }
@@ -50,22 +54,26 @@ export class AudioService {
     const ctx = this.initAudioContext();
 
     try {
+      if (ctx.state === 'suspended') {
+        await ctx.resume();
+      }
+
       let audioBuffer: AudioBuffer;
 
       if (this.cache.has(cacheKey)) {
         audioBuffer = this.cache.get(cacheKey)!;
       } else {
-        // Safe check for process.env to avoid white screen crashes
-        const apiKey = typeof process !== 'undefined' ? process.env.API_KEY : undefined;
+        // Safe access to API Key via window.process (polyfilled in index.html)
+        const apiKey = (window as any).process?.env?.API_KEY || "";
         
         if (!apiKey) {
-          console.warn("API Key not found. Audio functionality will be unavailable.");
+          console.error("English Master: API_KEY is missing. Audio playback will not work.");
           return;
         }
 
         const ai = new GoogleGenAI({ apiKey });
+        const prompt = `Say clearly: ${text}`;
         
-        const prompt = `Say clearly and slightly slowly (0.9 speed): ${text}`;
         const response = await ai.models.generateContent({
           model: "gemini-2.5-flash-preview-tts",
           contents: [{ parts: [{ text: prompt }] }],
@@ -80,7 +88,7 @@ export class AudioService {
         });
 
         const base64Audio = response.candidates?.[0]?.content?.parts?.[0]?.inlineData?.data;
-        if (!base64Audio) throw new Error("No audio data received");
+        if (!base64Audio) throw new Error("No audio data");
 
         audioBuffer = await decodeAudioData(
           decode(base64Audio),
@@ -96,7 +104,7 @@ export class AudioService {
       source.connect(ctx.destination);
       source.start();
     } catch (error) {
-      console.error("Audio Service Error:", error);
+      console.error("Audio Playback failure:", error);
     }
   }
 }
