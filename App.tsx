@@ -1,9 +1,8 @@
 
-import React, { useState, useEffect } from 'react';
-import { LESSONS } from './data/lessons';
-import { Lesson } from './types';
-import AudioButton from './components/AudioButton';
-import ExerciseSection from './components/ExerciseSection';
+import React, { useState } from 'react';
+import { LESSONS } from './data/lessons.ts';
+import AudioButton from './components/AudioButton.tsx';
+import ExerciseSection from './components/ExerciseSection.tsx';
 
 const App: React.FC = () => {
   const [selectedLessonId, setSelectedLessonId] = useState<number>(LESSONS[0].id);
@@ -11,7 +10,6 @@ const App: React.FC = () => {
 
   const currentLesson = LESSONS.find(l => l.id === selectedLessonId) || LESSONS[0];
 
-  // Helper to change lesson
   const handleLessonChange = (id: number) => {
     setSelectedLessonId(id);
     setActiveTab('vocab');
@@ -20,7 +18,6 @@ const App: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 flex flex-col md:flex-row">
-      {/* Sidebar - Desktop */}
       <aside className="w-full md:w-80 bg-white border-r border-slate-200 h-auto md:h-screen md:sticky md:top-0 overflow-y-auto z-10">
         <div className="p-6 border-b border-slate-100 bg-indigo-600 text-white">
           <h1 className="text-2xl font-bold">English Master</h1>
@@ -42,14 +39,9 @@ const App: React.FC = () => {
             </button>
           ))}
         </nav>
-        <div className="p-6 mt-auto border-t border-slate-100 hidden md:block">
-            <p className="text-xs text-slate-400 text-center">© 2024 English Master Learning App</p>
-        </div>
       </aside>
 
-      {/* Main Content Area */}
       <main className="flex-1 max-w-5xl mx-auto p-4 md:p-10 w-full">
-        {/* Lesson Header */}
         <header className="mb-8">
           <span className="text-indigo-600 font-bold uppercase tracking-widest text-sm mb-2 block">
             {currentLesson.title}
@@ -58,7 +50,6 @@ const App: React.FC = () => {
             {currentLesson.subtitle}
           </h2>
           
-          {/* Mobile Tabs (scrollable) */}
           <div className="flex overflow-x-auto pb-2 gap-2 mt-6 border-b border-slate-200">
             {[
               { id: 'vocab', label: 'Vocabulário' },
@@ -81,13 +72,10 @@ const App: React.FC = () => {
           </div>
         </header>
 
-        {/* Content Section */}
         <div className="bg-white rounded-2xl p-6 md:p-8 shadow-xl shadow-slate-200/50 min-h-[60vh]">
           {activeTab === 'vocab' && (
             <div className="animate-fade-in space-y-6">
-              <div className="flex justify-between items-center mb-4">
-                <h3 className="text-2xl font-bold text-slate-800">Vocabulário Essencial</h3>
-              </div>
+              <h3 className="text-2xl font-bold text-slate-800">Vocabulário Essencial</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {currentLesson.vocabulary.map((item) => (
                   <div key={item.id} className="group flex items-center justify-between p-4 bg-slate-50 rounded-xl hover:bg-white hover:ring-2 hover:ring-indigo-100 transition-all border border-transparent">

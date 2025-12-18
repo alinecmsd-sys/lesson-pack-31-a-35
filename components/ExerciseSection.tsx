@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
-import { ExerciseItem } from '../types';
-import AudioButton from './AudioButton';
+import { ExerciseItem } from '../types.ts';
+import AudioButton from './AudioButton.tsx';
 
 interface ExerciseSectionProps {
   exercises: ExerciseItem[];

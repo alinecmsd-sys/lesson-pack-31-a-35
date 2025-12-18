@@ -55,8 +55,15 @@ export class AudioService {
       if (this.cache.has(cacheKey)) {
         audioBuffer = this.cache.get(cacheKey)!;
       } else {
-        // CRITICAL: Initialize GoogleGenAI right before usage to avoid deployment initialization errors
-        const ai = new GoogleGenAI({ apiKey: process.env.API_KEY || '' });
+        // Safe check for process.env to avoid white screen crashes
+        const apiKey = typeof process !== 'undefined' ? process.env.API_KEY : undefined;
+        
+        if (!apiKey) {
+          console.warn("API Key not found. Audio functionality will be unavailable.");
+          return;
+        }
+
+        const ai = new GoogleGenAI({ apiKey });
         
         const prompt = `Say clearly and slightly slowly (0.9 speed): ${text}`;
         const response = await ai.models.generateContent({
@@ -73,7 +80,7 @@ export class AudioService {
         });
 
         const base64Audio = response.candidates?.[0]?.content?.parts?.[0]?.inlineData?.data;
-        if (!base64Audio) throw new Error("No audio data received from API");
+        if (!base64Audio) throw new Error("No audio data received");
 
         audioBuffer = await decodeAudioData(
           decode(base64Audio),
@@ -89,7 +96,7 @@ export class AudioService {
       source.connect(ctx.destination);
       source.start();
     } catch (error) {
-      console.error("Audio Playback Error:", error);
+      console.error("Audio Service Error:", error);
     }
   }
 }
