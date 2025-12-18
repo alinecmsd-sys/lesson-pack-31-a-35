@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { audioService } from '../services/audioService.ts';
 import { Voice } from '../types.ts';
 
@@ -12,25 +12,29 @@ interface AudioButtonProps {
 
 const AudioButton: React.FC<AudioButtonProps> = ({ text, size = 'md', voice = 'Kore', className = '' }) => {
   const [loading, setLoading] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const handlePlay = async (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
     
-    if (loading) return;
+    if (loading || !mounted) return;
     
     setLoading(true);
     try {
-      // Chamada direta para garantir que o AudioContext seja retomado no evento de clique
-      // Explicitly cast to Voice to satisfy the playText signature and avoid string widening errors
       await audioService.playText(text, voice as Voice);
     } catch (err) {
-      console.error("Erro ao tocar áudio:", err);
+      console.error("Falha ao tocar áudio:", err);
     } finally {
-      // Pequeno delay para feedback visual
-      setTimeout(() => setLoading(false), 600);
+      setTimeout(() => setLoading(false), 800);
     }
   };
+
+  if (!mounted) return <div className={`w-8 h-8 ${className}`} />;
 
   const sizeClasses = {
     sm: 'p-1.5',
@@ -43,7 +47,7 @@ const AudioButton: React.FC<AudioButtonProps> = ({ text, size = 'md', voice = 'K
       onClick={handlePlay}
       className={`bg-indigo-600 hover:bg-indigo-700 text-white rounded-full shadow-md transition-all active:scale-95 flex items-center justify-center disabled:opacity-70 ${sizeClasses[size]} ${className}`}
       disabled={loading}
-      aria-label="Ouvir áudio"
+      aria-label="Ouvir"
     >
       {loading ? (
         <svg className="animate-spin h-5 w-5 text-white" viewBox="0 0 24 24">

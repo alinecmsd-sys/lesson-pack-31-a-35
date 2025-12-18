@@ -15,7 +15,7 @@ function decodeBase64(base64: string): Uint8Array {
     }
     return bytes;
   } catch (e) {
-    console.error("AudioService: Base64 decode failed", e);
+    console.error("AudioService: Erro na decodificação Base64", e);
     return new Uint8Array(0);
   }
 }
@@ -41,11 +41,14 @@ export class AudioService {
   private audioContext: AudioContext | null = null;
   private cache: Map<string, AudioBuffer> = new Map();
 
-  private async resumeContext(): Promise<AudioContext> {
+  private async getContext(): Promise<AudioContext> {
+    if (typeof window === "undefined") throw new Error("AudioContext não disponível no servidor.");
+    
     if (!this.audioContext || this.audioContext.state === 'closed') {
       const AudioCtx = (window as any).AudioContext || (window as any).webkitAudioContext;
       this.audioContext = new AudioCtx({ sampleRate: SAMPLE_RATE });
     }
+    
     if (this.audioContext!.state === 'suspended') {
       await this.audioContext!.resume();
     }
@@ -54,7 +57,10 @@ export class AudioService {
 
   async playText(text: string, voice: Voice = 'Kore'): Promise<void> {
     try {
-      const ctx = await this.resumeContext();
+      // 1. Verificar se estamos no navegador
+      if (typeof window === "undefined") return;
+
+      const ctx = await this.getContext();
       const cacheKey = `${voice}:${text}`;
 
       let buffer: AudioBuffer;
@@ -62,13 +68,12 @@ export class AudioService {
       if (this.cache.has(cacheKey)) {
         buffer = this.cache.get(cacheKey)!;
       } else {
-        // Inicialização direta seguindo diretrizes: process.env.API_KEY deve estar disponível.
-        // Criamos uma nova instância para garantir o uso da chave mais recente injetada.
+        // 2. Inicializar AI apenas no clique para garantir acesso ao process.env mais recente
         const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
         
         const response = await ai.models.generateContent({
           model: "gemini-2.5-flash-preview-tts",
-          contents: [{ parts: [{ text: `Speak clearly in English at 0.9x speed: "${text}"` }] }],
+          contents: [{ parts: [{ text: `Speak in English naturally at 0.9x speed: "${text}"` }] }],
           config: {
             responseModalities: [Modality.AUDIO],
             speechConfig: {
@@ -80,21 +85,20 @@ export class AudioService {
         });
 
         const base64 = response.candidates?.[0]?.content?.parts?.[0]?.inlineData?.data;
-        if (!base64) throw new Error("Audio data missing in response");
+        if (!base64) throw new Error("Dados de áudio ausentes na resposta.");
 
         const audioData = decodeBase64(base64);
         buffer = await convertPcmToAudioBuffer(audioData, ctx, SAMPLE_RATE);
         this.cache.set(cacheKey, buffer);
       }
 
+      // 3. Execução do áudio com proteção contra interrupção
       const source = ctx.createBufferSource();
       source.buffer = buffer;
       source.connect(ctx.destination);
       source.start(0);
     } catch (error) {
-      console.error("AudioService error (Check if API_KEY is set in Vercel):", error);
-      // Não usamos mais alert() para não interromper a experiência. 
-      // O erro aparecerá no console se a chave estiver faltando.
+      console.error("Erro ao reproduzir áudio (Verifique a API_KEY no Vercel):", error);
     }
   }
 }

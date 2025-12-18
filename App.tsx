@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { LESSONS } from './data/lessons.ts';
 import AudioButton from './components/AudioButton.tsx';
 import ExerciseSection from './components/ExerciseSection.tsx';
@@ -7,14 +7,24 @@ import ExerciseSection from './components/ExerciseSection.tsx';
 const App: React.FC = () => {
   const [selectedLessonId, setSelectedLessonId] = useState<number>(LESSONS[0].id);
   const [activeTab, setActiveTab] = useState<'vocab' | 'sentences' | 'dialogues' | 'exercises'>('vocab');
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const currentLesson = LESSONS.find(l => l.id === selectedLessonId) || LESSONS[0];
 
   const handleLessonChange = (id: number) => {
     setSelectedLessonId(id);
     setActiveTab('vocab');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (typeof window !== 'undefined') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   };
+
+  // Previne erros de hidratação no Vercel
+  if (!mounted) return <div className="min-h-screen bg-slate-50" />;
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 flex flex-col md:flex-row">
