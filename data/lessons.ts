@@ -38,19 +38,21 @@ export const LESSONS: Lesson[] = [
           { id: 'd31-3', speaker: "Anna", text: "He teaches at the university too, doesn't he?", translation: "Ele ensina na universidade também, não ensina?" },
           { id: 'd31-4', speaker: "Bob", text: "I believe so. He told me he's busy because the staff might go on strike.", translation: "Acredito que sim. Ele me disse que está ocupado porque os funcionários podem entrar em greve." },
           { id: 'd31-5', speaker: "Anna", text: "That won't bother your application, will it?", translation: "Isso não vai atrapalhar sua candidatura, vai?" },
-          { id: 'd31-6', speaker: "Bob", text: "Beats me. I just hope they don't get angry at my questions!", translation: "Não faço ideia. Só espero que não fiquem bravos com minhas perguntas!" }
+          { id: 'd31-6', speaker: "Bob", text: "Beats me. I just hope they don't get angry at my questions!", translation: "Não faço ideia. Só espero que não fiquem bravos com minhas perguntas!" },
+          { id: 'd31-7', speaker: "Anna", text: "You really want this job, don't you?", translation: "Você quer muito esse emprego, não quer?" },
+          { id: 'd31-8', speaker: "Bob", text: "Yes, I'm excited. I don't want to be unemployed anymore.", translation: "Sim, estou empolgado. Não quero mais ficar desempregado." }
         ]
       }
     ],
     exercises: [
-      { id: 'e31-1', question: "Escolha a tag question correta: 'He works here, ...?'", options: ["doesn't he", "don't he"], correctAnswer: "doesn't he", audioPrompt: "He works here, doesn't he?" },
-      { id: 'e31-2', question: "Listening: O que você ouviu?", options: ["You don't believe that", "You believe that"], correctAnswer: "You don't believe that", audioPrompt: "You don't believe that, do you?" },
+      { id: 'e31-1', question: "Complete: 'He works here, ...?'", options: ["doesn't he", "don't he"], correctAnswer: "doesn't he", audioPrompt: "He works here, doesn't he?" },
+      { id: 'e31-2', question: "Listening: O que foi dito?", options: ["You don't believe that", "You believe that"], correctAnswer: "You don't believe that", audioPrompt: "You don't believe that, do you?" },
       { id: 'e31-3', question: "Complete: 'They went on strike, ...?'", options: ["didn't they", "did they"], correctAnswer: "didn't they", audioPrompt: "They went on strike, didn't they?" },
-      { id: 'e31-4', question: "Listening: Qual a resposta curta?", options: ["No, I don't", "Yes, I do"], correctAnswer: "No, I don't", audioPrompt: "You don't believe that, do you? No, I don't." },
-      { id: 'e31-5', question: "Complete: 'She teaches English, ...?'", options: ["doesn't she", "isn't she"], correctAnswer: "doesn't she", audioPrompt: "She teaches English, doesn't she?" },
-      { id: 'e31-6', question: "Listening: Escolha o verbo correto", options: ["Met", "Apply"], correctAnswer: "Met", audioPrompt: "We met by chance, didn't we?" },
-      { id: 'e31-7', question: "Complete: 'You have an appointment, ...?'", options: ["don't you", "haven't you"], correctAnswer: "don't you", audioPrompt: "You have an appointment, don't you?" },
-      { id: 'e31-8', question: "Listening: Identifique a tag question", options: ["will they", "won't they"], correctAnswer: "will they", audioPrompt: "They won't bother you anymore, will they?" }
+      { id: 'e31-4', question: "Listening: Qual a tag?", options: ["Doesn't she", "Isn't she"], correctAnswer: "Doesn't she", audioPrompt: "She teaches English, doesn't she?" },
+      { id: 'e31-5', question: "Complete: 'We met by chance, ...?'", options: ["didn't we", "did we"], correctAnswer: "didn't we", audioPrompt: "We met by chance, didn't we?" },
+      { id: 'e31-6', question: "Listening: O que eles têm?", options: ["An appointment", "A decision"], correctAnswer: "An appointment", audioPrompt: "They have an appointment, don't they?" },
+      { id: 'e31-7', question: "Complete: 'You apply for jobs, ...?'", options: ["don't you", "aren't you"], correctAnswer: "don't you", audioPrompt: "You apply for jobs every day, don't you?" },
+      { id: 'e31-8', question: "Listening: Marque a correta.", options: ["They won't bother you", "They will bother you"], correctAnswer: "They won't bother you", audioPrompt: "They won't bother you anymore, will they?" }
     ]
   },
   {
@@ -88,19 +90,21 @@ export const LESSONS: Lesson[] = [
           { id: 'd32-3', speaker: "Traveler", text: "Yes, I am. But John wasn't there. He was upset about something, wasn't he?", translation: "Sim, estou. Mas John não estava lá. Ele estava chateado com algo, não estava?" },
           { id: 'd32-4', speaker: "Staff", text: "I thought so. He's in love with Mary, isn't he?", translation: "Eu pensei que sim. Ele está apaixonado pela Mary, não está?" },
           { id: 'd32-5', speaker: "Traveler", text: "Interesting! That explains why he was so quiet. He isn't usually like that, is he?", translation: "Interessante! Isso explica por que ele estava tão quieto. Ele não costuma ser assim, é?" },
-          { id: 'd32-6', speaker: "Staff", text: "No, he's usually very funny. It's a shame!", translation: "Não, ele geralmente é muito engraçado. É uma pena!" }
+          { id: 'd32-6', speaker: "Staff", text: "No, he's usually very funny. It's a shame!", translation: "Não, ele geralmente é muito engraçado. É uma pena!" },
+          { id: 'd32-7', speaker: "Traveler", text: "We were all so happy, weren't we?", translation: "Estávamos todos tão felizes, não estávamos?" },
+          { id: 'd32-8', speaker: "Staff", text: "Yes, we were. It was a great night.", translation: "Sim, estávamos. Foi uma ótima noite." }
         ]
       }
     ],
     exercises: [
-      { id: 'e32-1', question: "Listening: O que você ouviu?", options: ["They were glad", "They weren't glad"], correctAnswer: "They were glad", audioPrompt: "They were glad to be here, aren't they?" },
-      { id: 'e32-2', question: "Complete: 'She is your sister, ...?'", options: ["isn't she", "is she"], correctAnswer: "isn't she", audioPrompt: "She is your sister, isn't she?" },
-      { id: 'e32-3', question: "Listening: Identifique a tag question", options: ["Was she", "Wasn't she"], correctAnswer: "Was she", audioPrompt: "She wasn't upset, was she?" },
-      { id: 'e32-4', question: "Complete: 'It's a little wild, ...?'", options: ["isn't it", "is it"], correctAnswer: "isn't it", audioPrompt: "It's a little wild, isn't it?" },
-      { id: 'e32-5', question: "Listening: O que foi perguntado?", options: ["Are you thinking about leaving?", "Are you leaving now?"], correctAnswer: "Are you thinking about leaving?", audioPrompt: "You're not thinking about leaving, are you?" },
-      { id: 'e32-6', question: "Complete: 'He was funny, ...?'", options: ["wasn't he", "was he"], correctAnswer: "wasn't he", audioPrompt: "He was funny, wasn't he?" },
-      { id: 'e32-7', question: "Listening: O que eles estavam?", options: ["In love", "Upset"], correctAnswer: "In love", audioPrompt: "They were in love, weren't they?" },
-      { id: 'e32-8', question: "Complete: 'You aren't tired, ...?'", options: ["are you", "aren't you"], correctAnswer: "are you", audioPrompt: "You aren't tired, are you?" }
+      { id: 'e32-1', question: "Complete: 'She is happy, ...?'", options: ["isn't she", "is she"], correctAnswer: "isn't she", audioPrompt: "She is happy, isn't she?" },
+      { id: 'e32-2', question: "Listening: O que você ouviu?", options: ["They were glad", "They weren't glad"], correctAnswer: "They were glad", audioPrompt: "They were glad to be here, aren't they?" },
+      { id: 'e32-3', question: "Complete: 'You aren't tired, ...?'", options: ["are you", "aren't you"], correctAnswer: "are you", audioPrompt: "You aren't tired, are you?" },
+      { id: 'e32-4', question: "Listening: Qual a tag usada?", options: ["Wasn't she", "Was she"], correctAnswer: "Was she", audioPrompt: "She wasn't upset, was she?" },
+      { id: 'e32-5', question: "Complete: 'It was funny, ...?'", options: ["wasn't it", "was it"], correctAnswer: "wasn't it", audioPrompt: "It was funny, wasn't it?" },
+      { id: 'e32-6', question: "Listening: Quem estava apaixonado?", options: ["They were", "We were"], correctAnswer: "They were", audioPrompt: "They were in love, weren't they?" },
+      { id: 'e32-7', question: "Complete: 'He is smart, ...?'", options: ["isn't he", "is he"], correctAnswer: "isn't he", audioPrompt: "He is smart, isn't he?" },
+      { id: 'e32-8', question: "Listening: Marque a tag correta.", options: ["Isn't it", "Wasn't it"], correctAnswer: "Isn't it", audioPrompt: "It's interesting, isn't it?" }
     ]
   },
   {
@@ -140,19 +144,21 @@ export const LESSONS: Lesson[] = [
           { id: 'd33-3', speaker: "Mark", text: "He didn't say. But he said he would call whenever he could.", translation: "Ele não disse. Mas disse que ligaria sempre que pudesse." },
           { id: 'd33-4', speaker: "Jane", text: "Whatever he decides, we should be ready to go wherever he needs.", translation: "O que quer que ele decida, devemos estar prontos para ir onde quer que ele precise." },
           { id: 'd33-5', speaker: "Mark", text: "Instead of waiting, let's just plan our own route.", translation: "Em vez de esperar, vamos apenas planejar nossa própria rota." },
-          { id: 'd33-6', speaker: "Jane", text: "Whoever told you that was a good idea was right!", translation: "Quem quer que tenha te dito que isso era uma boa ideia estava certo!" }
+          { id: 'd33-6', speaker: "Jane", text: "Whoever told you that was a good idea was right!", translation: "Quem quer que tenha te dito que isso era uma boa ideia estava certo!" },
+          { id: 'd33-7', speaker: "Mark", text: "Tell me the truth, are you worried?", translation: "Diga-me a verdade, você está preocupada?" },
+          { id: 'd33-8', speaker: "Jane", text: "I said I was fine, didn't I?", translation: "Eu disse que estava bem, não disse?" }
         ]
       }
     ],
     exercises: [
-      { id: 'e33-1', question: "Listening: O que foi decidido?", options: ["Whatever you decide", "Whenever you decide"], correctAnswer: "Whatever you decide", audioPrompt: "Whatever you decide, I will support you." },
-      { id: 'e33-2', question: "Complete: 'She ... me a secret.'", options: ["told", "said"], correctAnswer: "told", audioPrompt: "She told me a secret." },
-      { id: 'e33-3', question: "Listening: Qual a localização?", options: ["Wherever you like", "Whenever you like"], correctAnswer: "Wherever you like", audioPrompt: "You can sit wherever you like." },
-      { id: 'e33-4', question: "Complete: 'They ... they were tired.'", options: ["said", "told"], correctAnswer: "said", audioPrompt: "They said they were tired." },
-      { id: 'e33-5', question: "Listening: Quando ligar?", options: ["Whenever you need help", "Whoever needs help"], correctAnswer: "Whenever you need help", audioPrompt: "Call me whenever you need help." },
-      { id: 'e33-6', question: "Complete: 'He ... he would arrive in time.'", options: ["said", "told"], correctAnswer: "said", audioPrompt: "He said he would arrive in time." },
-      { id: 'e33-7', question: "Listening: Quem ganha?", options: ["Whoever wins", "Whatever wins"], correctAnswer: "Whoever wins", audioPrompt: "Whoever wins, we will celebrate." },
-      { id: 'e33-8', question: "Complete: 'I ... you I would help.'", options: ["told", "said"], correctAnswer: "told", audioPrompt: "I told you I would help." }
+      { id: 'e33-1', question: "Complete: 'She ... she was tired.'", options: ["said", "told"], correctAnswer: "said", audioPrompt: "She said she was tired." },
+      { id: 'e33-2', question: "Listening: O que fazer com ajuda?", options: ["Call whenever", "Call wherever"], correctAnswer: "Call whenever", audioPrompt: "Call me whenever you need help." },
+      { id: 'e33-3', question: "Complete: 'He ... me the truth.'", options: ["told", "said"], correctAnswer: "told", audioPrompt: "He told me the truth." },
+      { id: 'e33-4', question: "Listening: Onde sentar?", options: ["Wherever you like", "Whatever you like"], correctAnswer: "Wherever you like", audioPrompt: "You can sit wherever you like." },
+      { id: 'e33-5', question: "Complete: '... happens, stay calm.'", options: ["Whatever", "Whoever"], correctAnswer: "Whatever", audioPrompt: "Whatever happens, stay calm." },
+      { id: 'e33-6', question: "Listening: O que eles disseram?", options: ["Excited", "Upset"], correctAnswer: "Excited", audioPrompt: "They said they were excited." },
+      { id: 'e33-7', question: "Complete: 'I ... you to be here.'", options: ["told", "said"], correctAnswer: "told", audioPrompt: "I told you to be here." },
+      { id: 'e33-8', question: "Listening: Marque o pronome correto.", options: ["Whoever", "Wherever"], correctAnswer: "Whoever", audioPrompt: "Whoever wins, we celebrate." }
     ]
   },
   {
@@ -188,19 +194,21 @@ export const LESSONS: Lesson[] = [
           { id: 'd34-3', speaker: "Alice", text: "A little bit. It's more expensive, but the camera is better than yours.", translation: "Um pouco. É mais caro, mas a câmera é melhor que a sua." },
           { id: 'd34-4', speaker: "Bob", text: "I believe it. My phone is getting slower every day.", translation: "Eu acredito. Meu celular está ficando mais lento a cada dia." },
           { id: 'd34-5', speaker: "Alice", text: "You should get one like this. It's cheaper than the Pro version!", translation: "Você deveria comprar um como este. É mais barato que a versão Pro!" },
-          { id: 'd34-6', speaker: "Bob", text: "Maybe. Is it smarter than me though? Just joking!", translation: "Talvez. Mas ele é mais esperto que eu? Só brincando!" }
+          { id: 'd34-6', speaker: "Bob", text: "Maybe. Is it smarter than me though? Just joking!", translation: "Talvez. Mas ele é mais esperto que eu? Só brincando!" },
+          { id: 'd34-7', speaker: "Alice", text: "It's certainly thinner than the old models.", translation: "Certamente é mais fino que os modelos antigos." },
+          { id: 'd34-8', speaker: "Bob", text: "And the battery is better than mine too.", translation: "E a bateria é melhor que a minha também." }
         ]
       }
     ],
     exercises: [
-      { id: 'e34-1', question: "Listening: Quem é mais alto?", options: ["She is taller", "I am taller"], correctAnswer: "She is taller", audioPrompt: "She is taller than me." },
-      { id: 'e34-2', question: "Complete: 'My car is ... than yours.'", options: ["faster", "fastest"], correctAnswer: "faster", audioPrompt: "My car is faster than yours." },
-      { id: 'e34-3', question: "Listening: O que foi comparado?", options: ["Houses", "Cars"], correctAnswer: "Houses", audioPrompt: "My house is smaller than yours." },
-      { id: 'e34-4', question: "Complete: 'Gold is ... than silver.'", options: ["more expensive", "expensiver"], correctAnswer: "more expensive", audioPrompt: "Gold is more expensive than silver." },
-      { id: 'e34-5', question: "Listening: Como está o inglês?", options: ["Better", "Worse"], correctAnswer: "Better", audioPrompt: "Your English is better than mine!" },
-      { id: 'e34-6', question: "Complete: 'He is as ... as his father.'", options: ["smart", "smarter"], correctAnswer: "smart", audioPrompt: "He is as smart as his father." },
-      { id: 'e34-7', question: "Listening: Qual a comparação?", options: ["Slower", "Faster"], correctAnswer: "Slower", audioPrompt: "My bike is slower than your bike." },
-      { id: 'e34-8', question: "Complete: 'This movie is ... than the last one.'", options: ["worse", "badder"], correctAnswer: "worse", audioPrompt: "This movie is worse than the last one." }
+      { id: 'e34-1', question: "Complete: 'She is ... than me.'", options: ["taller", "tallest"], correctAnswer: "taller", audioPrompt: "She is taller than me." },
+      { id: 'e34-2', question: "Listening: O que é mais rápido?", options: ["The car", "The bike"], correctAnswer: "The car", audioPrompt: "This car is faster than that one." },
+      { id: 'e34-3', question: "Complete: 'Gold is ... than silver.'", options: ["more expensive", "expensiver"], correctAnswer: "more expensive", audioPrompt: "Gold is more expensive than silver." },
+      { id: 'e34-4', question: "Listening: Como está o inglês?", options: ["Better", "Worse"], correctAnswer: "Better", audioPrompt: "Your English is better than mine!" },
+      { id: 'e34-5', question: "Complete: 'He is as ... as me.'", options: ["smart", "smarter"], correctAnswer: "smart", audioPrompt: "He is as smart as me." },
+      { id: 'e34-6', question: "Listening: A casa é o quê?", options: ["Smaller", "Bigger"], correctAnswer: "Smaller", audioPrompt: "My house is smaller than yours." },
+      { id: 'e34-7', question: "Complete: 'This is ... than that.'", options: ["better", "gooder"], correctAnswer: "better", audioPrompt: "This is better than that." },
+      { id: 'e34-8', question: "Listening: Marque a correta.", options: ["Cheaper", "Worse"], correctAnswer: "Cheaper", audioPrompt: "It's cheaper than the Pro version!" }
     ]
   },
   {
@@ -235,19 +243,21 @@ export const LESSONS: Lesson[] = [
           { id: 'd35-3', speaker: "Jim", text: "I agree. She always gets the best grades!", translation: "Eu concordo. Ela sempre tira as melhores notas!" },
           { id: 'd35-4', speaker: "Pam", text: "But Jim, you are the fastest runner in the school, aren't you?", translation: "Mas Jim, você é o corredor mais rápido da escola, não é?" },
           { id: 'd35-5', speaker: "Jim", text: "I try! Though last winter was the coldest I've ever felt while training.", translation: "Eu tento! Embora o último inverno tenha sido o mais frio que já senti enquanto treinava." },
-          { id: 'd35-6', speaker: "Pam", text: "That sounds like the worst training condition possible!", translation: "Isso parece a pior condição de treino possível!" }
+          { id: 'd35-6', speaker: "Pam", text: "That sounds like the worst training condition possible!", translation: "Isso parece a pior condição de treino possível!" },
+          { id: 'd35-7', speaker: "Jim", text: "Who is the tallest in your family?", translation: "Quem é o mais alto na sua família?" },
+          { id: 'd35-8', speaker: "Pam", text: "My brother. He is the tallest person I've ever seen!", translation: "Meu irmão. Ele é a pessoa mais alta que eu já vi!" }
         ]
       }
     ],
     exercises: [
-      { id: 'e35-1', question: "Listening: Qual a característica?", options: ["The most intelligent", "The most beautiful"], correctAnswer: "The most intelligent", audioPrompt: "She is the most intelligent girl I know." },
-      { id: 'e35-2', question: "Complete: 'Alaska is the ... state.'", options: ["coldest", "colder"], correctAnswer: "coldest", audioPrompt: "Alaska is the coldest state in the USA." },
-      { id: 'e35-3', question: "Listening: Onde ele é o mais alto?", options: ["In the class", "In the world"], correctAnswer: "In the class", audioPrompt: "He is the tallest student in the class." },
-      { id: 'e35-4', question: "Complete: 'This is the ... movie ever!'", options: ["best", "better"], correctAnswer: "best", audioPrompt: "This is the best movie ever!" },
-      { id: 'e35-5', question: "Listening: Como foi o dia?", options: ["The worst", "The best"], correctAnswer: "The worst", audioPrompt: "That was the worst day of my life." },
-      { id: 'e35-6', question: "Complete: 'The cheetah is the ... animal.'", options: ["fastest", "faster"], correctAnswer: "fastest", audioPrompt: "The cheetah is the fastest animal." },
-      { id: 'e35-7', question: "Listening: Identifique o superlativo", options: ["The smartest", "The tallest"], correctAnswer: "The smartest", audioPrompt: "He is the smartest kid here." },
-      { id: 'e35-8', question: "Complete: 'The Pacific is the ... ocean.'", options: ["biggest", "bigger"], correctAnswer: "biggest", audioPrompt: "The Pacific is the biggest ocean." }
+      { id: 'e35-1', question: "Complete: 'She is the ... girl.'", options: ["most intelligent", "more intelligent"], correctAnswer: "most intelligent", audioPrompt: "She is the most intelligent girl I know." },
+      { id: 'e35-2', question: "Listening: Qual estado foi citado?", options: ["Alaska", "Texas"], correctAnswer: "Alaska", audioPrompt: "Alaska is the coldest state in the USA." },
+      { id: 'e35-3', question: "Complete: 'This is the ... movie.'", options: ["best", "better"], correctAnswer: "best", audioPrompt: "This is the best movie ever!" },
+      { id: 'e35-4', question: "Listening: O que o guepardo é?", options: ["The fastest", "The biggest"], correctAnswer: "The fastest", audioPrompt: "The cheetah is the fastest animal." },
+      { id: 'e35-5', question: "Complete: 'He is the ... student.'", options: ["tallest", "taller"], correctAnswer: "tallest", audioPrompt: "He is the tallest student in the class." },
+      { id: 'e35-6', question: "Listening: Como foi o dia?", options: ["The worst", "The best"], correctAnswer: "The worst", audioPrompt: "That was the worst day of my life." },
+      { id: 'e35-7', question: "Complete: 'This is the ... joke.'", options: ["funniest", "funnyest"], correctAnswer: "funniest", audioPrompt: "This is the funniest joke ever!" },
+      { id: 'e35-8', question: "Listening: Marque o superlativo.", options: ["Smallest", "Smartest"], correctAnswer: "Smartest", audioPrompt: "She is the smartest student in our class." }
     ]
   }
 ];
