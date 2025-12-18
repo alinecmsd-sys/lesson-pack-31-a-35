@@ -8,23 +8,33 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script>
-      // Garantir que process.env exista antes de qualquer módulo carregar
-      window.process = window.process || { env: {} };
-      // O Vercel injeta a chave, mas o navegador precisa que ela esteja no escopo global se o bundler não a substituir
-      if (!window.process.env.API_KEY) {
-        window.process.env.API_KEY = ""; 
-      }
+      // Polyfill definitivo para process.env no navegador
+      (function() {
+        if (typeof window.process === 'undefined') {
+          window.process = { env: {} };
+        } else if (typeof window.process.env === 'undefined') {
+          window.process.env = {};
+        }
+        
+        // Se o Vercel injetar a chave via build-time, ela aparecerá aqui.
+        // Se não, garantimos que não seja undefined para não quebrar o código.
+        window.process.env.API_KEY = window.process.env.API_KEY || "";
+      })();
     </script>
     <style>
         body {
             font-family: 'Inter', sans-serif;
             background-color: #f8fafc;
             margin: 0;
+            overflow-x: hidden;
         }
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #f1f1f1; }
         ::-webkit-scrollbar-thumb { background: #c7d2fe; border-radius: 10px; }
         ::-webkit-scrollbar-thumb:hover { background: #818cf8; }
+        
+        /* Prevenir flashes de conteúdo não estilizado */
+        [v-cloak] { display: none; }
     </style>
     <script type="importmap">
     {
