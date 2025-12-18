@@ -13,7 +13,7 @@ function decode(base64: string) {
     }
     return bytes;
   } catch (e) {
-    console.error("Base64 decode error", e);
+    console.error("English Master: Base64 decode error", e);
     return new Uint8Array(0);
   }
 }
@@ -42,7 +42,7 @@ export class AudioService {
   private cache: Map<string, AudioBuffer> = new Map();
 
   private initAudioContext() {
-    if (!this.audioContext || this.audioContext.state === 'suspended') {
+    if (!this.audioContext || this.audioContext.state === 'closed') {
       const AudioCtx = (window as any).AudioContext || (window as any).webkitAudioContext;
       this.audioContext = new AudioCtx({ sampleRate: SAMPLE_RATE });
     }
@@ -54,6 +54,7 @@ export class AudioService {
     const ctx = this.initAudioContext();
 
     try {
+      // Modern browsers require resuming AudioContext within a user-triggered event
       if (ctx.state === 'suspended') {
         await ctx.resume();
       }
@@ -63,16 +64,17 @@ export class AudioService {
       if (this.cache.has(cacheKey)) {
         audioBuffer = this.cache.get(cacheKey)!;
       } else {
-        // Safe access to API Key via window.process (polyfilled in index.html)
-        const apiKey = (window as any).process?.env?.API_KEY || "";
+        // Accessing the API Key safely
+        const apiKey = process.env.API_KEY;
         
         if (!apiKey) {
-          console.error("English Master: API_KEY is missing. Audio playback will not work.");
+          console.error("English Master: process.env.API_KEY is missing or empty. Verify your environment variables.");
           return;
         }
 
         const ai = new GoogleGenAI({ apiKey });
-        const prompt = `Say clearly: ${text}`;
+        // We instruct the model to speak at 0.9 speed as requested
+        const prompt = `Say in English at 0.9x speed: ${text}`;
         
         const response = await ai.models.generateContent({
           model: "gemini-2.5-flash-preview-tts",
@@ -88,7 +90,10 @@ export class AudioService {
         });
 
         const base64Audio = response.candidates?.[0]?.content?.parts?.[0]?.inlineData?.data;
-        if (!base64Audio) throw new Error("No audio data");
+        if (!base64Audio) {
+          console.error("English Master: No audio data returned from Gemini API");
+          return;
+        }
 
         audioBuffer = await decodeAudioData(
           decode(base64Audio),
@@ -104,7 +109,7 @@ export class AudioService {
       source.connect(ctx.destination);
       source.start();
     } catch (error) {
-      console.error("Audio Playback failure:", error);
+      console.error("English Master: Audio Service failure", error);
     }
   }
 }
