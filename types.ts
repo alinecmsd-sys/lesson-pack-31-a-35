@@ -1,4 +1,6 @@
 
+export type Voice = 'Kore' | 'Puck' | 'Zephyr';
+
 export interface VocabItem {
   id: string;
   word: string;
