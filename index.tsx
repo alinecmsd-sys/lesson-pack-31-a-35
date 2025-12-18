@@ -11,6 +11,9 @@ const mountApp = () => {
       return;
     }
 
+    // Clear existing content to avoid hydration issues if any
+    rootElement.innerHTML = '';
+
     const root = ReactDOM.createRoot(rootElement);
     root.render(
       <React.StrictMode>
@@ -22,14 +25,20 @@ const mountApp = () => {
     console.error("Failed to render App:", error);
     const rootElement = document.getElementById('root');
     if (rootElement) {
-      rootElement.innerHTML = `<div style="padding: 20px; color: red;">Error loading application. Check console for details.</div>`;
+      rootElement.innerHTML = `
+        <div style="padding: 40px; text-align: center; font-family: sans-serif;">
+          <h1 style="color: #e11d48;">Initialization Error</h1>
+          <p style="color: #4b5563;">Please refresh the page or check the console logs.</p>
+          <pre style="background: #f3f4f6; padding: 10px; border-radius: 8px; font-size: 12px; display: inline-block; text-align: left;">${String(error)}</pre>
+        </div>
+      `;
     }
   }
 };
 
-// Ensure DOM is ready
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', mountApp);
-} else {
+// Handle both initial load and potential race conditions
+if (document.readyState === 'complete' || document.readyState === 'interactive') {
   mountApp();
+} else {
+  document.addEventListener('DOMContentLoaded', mountApp);
 }
